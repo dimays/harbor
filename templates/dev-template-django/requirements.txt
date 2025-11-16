@@ -1,5 +1,0 @@
-ipython
-mypy
-pytest
-python-dotenv
-ruff

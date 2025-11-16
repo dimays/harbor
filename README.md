@@ -23,8 +23,8 @@ cd harbor
 scripts/create-project.sh <project_name> [child_template]
 ```
 
-* `<project_name>` – The name of your new project
-* `[child_template]` – Optional child template to overlay on the base template
+- `<project_name>` – The name of your new project
+- `[child_template]` – Optional child template to overlay on the base template
 
 This script will:
 
@@ -35,12 +35,11 @@ This script will:
 
 ## Templates
 
-* `dev-template` – Lightweight base Python project
-* `dev-template-django` – Python Django project template
-* `dev-template-dbt` – dbt project template
-* `dev-template-ctk` – CustomTkinter GUI project template
+- `dev-template` – Lightweight base Python project
+- `dev-template-dbt` – dbt project template
+- `dev-template-ctk` – CustomTkinter GUI project template
 
 ## Notes
 
-* The `projects/` directory is **gitignored** in Harbor. This keeps the monorepo lightweight while allowing each project to maintain its own repository and remote.
-* Harbor ensures consistent structure and tooling across all personal projects.
+- The `projects/` directory is **gitignored** in Harbor. This keeps the monorepo lightweight while allowing each project to maintain its own repository and remote.
+- Harbor ensures consistent structure and tooling across all personal projects.

@@ -3,3 +3,6 @@ mypy
 pytest
 python-dotenv
 ruff
+customtkinter
+pillow
+PyYAML
