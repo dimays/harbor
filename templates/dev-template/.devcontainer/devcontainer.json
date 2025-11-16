@@ -1,0 +1,46 @@
+{
+  "name": "Python Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+
+  // Force VS Code to mount the opened folder at /workspace
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+
+  "forwardPorts": [
+    8000, // Django / FastAPI / Python web apps
+    8888  // Jupyter Notebook / Lab
+  ],
+
+  "containerEnv": {
+    "PYTHONUNBUFFERED": "1"
+  },
+
+  // Mount the .env file
+  "mounts": [
+    "source=${localWorkspaceFolder}/.env,target=/workspace/.env,type=bind,consistency=cached"
+  ],
+
+  "remoteUser": "vscode",
+
+  "postCreateCommand": "pip install --upgrade pip setuptools wheel && pip install -r requirements.txt",
+  
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.formatting.provider": "none",
+        "editor.formatOnSave": true,
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "ruff.enable": true
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "Harbor Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+  "containerEnv": {
+    "BASH_ENV": "/workspace/.bashrc"
+  },
+  "forwardPorts": [],
+  "remoteUser": "vscode",
+  "postCreateCommand": "git --version && gh --version",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.formatOnSave": true,
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        "ms-vscode-remote.remote-containers",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}
