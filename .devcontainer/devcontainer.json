@@ -9,12 +9,7 @@
   "containerEnv": {
     "BASH_ENV": "/workspace/.bashrc"
   },
-  "mounts": [
-    "source=${env:SSH_AUTH_SOCK},target=/ssh-agent,type=bind"
-  ],
-  "remoteEnv": {
-      "SSH_AUTH_SOCK": "/ssh-agent"
-  },
+  
   "forwardPorts": [],
   "remoteUser": "vscode",
   "postCreateCommand": "git --version && gh --version",
