@@ -45,15 +45,16 @@ if [ -n "$CHILD_TEMPLATE" ]; then
         exit 1
     fi
     echo "Applying child template overlay: $CHILD_TEMPLATE"
-    rsync -av --exclude='scripts/' "$CHILD_TEMPLATE_DIR/" "$TARGET_DIR/"
+    rsync -av --exclude='scripts/' --exclude='git/' "$CHILD_TEMPLATE_DIR/" "$TARGET_DIR/"
 fi
 
 # -----------------------------
 # Copy .env.example → .env
 # -----------------------------
 if [ -f "$TARGET_DIR/.env.example" ]; then
-    cp "$TARGET_DIR/.env.example" "$TARGET_DIR/.env"
+    mv "$TARGET_DIR/.env.example" "$TARGET_DIR/.env"
     $SED_CMD "s/__project__/$PROJECT_NAME/g" "$TARGET_DIR/.env"
+
 else
     echo "Warning: .env.example not found, skipping .env creation"
 fi
