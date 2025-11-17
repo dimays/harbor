@@ -102,7 +102,7 @@ fi
 pushd "$TARGET_DIR" >/dev/null
 
 rm -rf .git || true
-git init
+git init --initial-branch=main
 git add .
 git commit -m "Initial commit from dev-template"
 
