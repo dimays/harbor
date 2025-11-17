@@ -23,7 +23,12 @@ fi
 # -----------------------------
 # Create project directory
 # -----------------------------
-if [ -d "$TARGET_DIR" ]; then
+if [ ! -d "$PROJECTS_DIR" ]; then
+    echo "Creating Harbor projects directory at $PROJECTS_DIR"
+    mkdir -p "$PROJECTS_DIR"
+fi
+
+if [ ! -d "$TARGET_DIR" ]; then
     echo "Error: Directory $TARGET_DIR already exists"
     exit 1
 fi
