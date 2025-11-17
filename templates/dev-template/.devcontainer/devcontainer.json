@@ -5,6 +5,11 @@
     "context": ".."
   },
 
+  // Include variables from .env in container
+  "runArgs": [
+    "--env-file", ".env"
+  ],
+
   // Force VS Code to mount the opened folder at /workspace
   "workspaceFolder": "/workspace",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
