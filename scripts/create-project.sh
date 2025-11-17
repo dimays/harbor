@@ -76,7 +76,7 @@ mv "$TARGET_DIR/src/__project__" "$TARGET_DIR/src/$PROJECT_NAME"
 mv "$TARGET_DIR/tests/__project__" "$TARGET_DIR/tests/$PROJECT_NAME"
 
 # Replace placeholders in all relevant files
-grep -rl "__project__" "$TARGET_DIR/src" "$TARGET_DIR/tests" | xargs $SED_CMD "s/__project__/$PROJECT_NAME/g"
+grep -rl "__project__" "$TARGET_DIR/src" "$TARGET_DIR/tests" "$TARGET_DIR/.env" | xargs $SED_CMD "s/__project__/$PROJECT_NAME/g"
 
 # -----------------------------
 # Load environment variables from the new project's .env
