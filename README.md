@@ -46,7 +46,7 @@ Before using Harbor and running create-project.sh, make sure you have the follow
      - SSH keys: generate and add to GitHub
        - ssh-keygen -t ed25519 -C "your_email@example.com"
        - ssh-add ~/.ssh/id_ed25519
-     - Or use GitHub CLI: gh auth login
+     - Generate Personal Access Token (classic) and store it locally as GH_TOKEN env variable
      - Ensure you can push/pull to GitHub from your host.
 
 4. Devcontainer Setup
