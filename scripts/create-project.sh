@@ -79,14 +79,17 @@ mv "$TARGET_DIR/tests/__project__" "$TARGET_DIR/tests/$PROJECT_NAME"
 grep -rl "__project__" "$TARGET_DIR/src" "$TARGET_DIR/tests" | xargs $SED_CMD "s/__project__/$PROJECT_NAME/g"
 
 # -----------------------------
-# Load GITHUB_USERNAME from the new project's .env
+# Load environment variables from the new project's .env
 # -----------------------------
 if [ ! -f "$TARGET_DIR/.env" ]; then
     echo "Error: .env file missing in $TARGET_DIR"
     exit 1
 fi
 
-export $(grep -v '^#' "$TARGET_DIR/.env" | xargs)
+# Use 'set -a' and 'source' to safely export all variables
+set -a
+source "$TARGET_DIR/.env"
+set +a
 
 if [ -z "${GITHUB_USERNAME-}" ]; then
     echo "Error: GITHUB_USERNAME variable not defined in .env"
