@@ -4,11 +4,13 @@
     "dockerfile": "Dockerfile",
     "context": ".."
   },
+  "runArgs": [
+    "--env-file", ".env"
+  ],
   "workspaceFolder": "/workspace",
   "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
   "containerEnv": {
-    "BASH_ENV": "/workspace/.bashrc",
-    "GH_TOKEN": "${localEnv:GH_TOKEN}"
+    "BASH_ENV": "/workspace/.bashrc"
   },
   
   "forwardPorts": [],
