@@ -8,10 +8,11 @@ set -euo pipefail
 PROJECT_NAME=$1
 CHILD_TEMPLATE=${2:-""} # Optional child template overlay
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-HARBOR_ROOT="$(dirname "$(dirname "$(dirname "$SCRIPT_DIR")")")" # This file's grandparent directory
+HARBOR_ROOT="$(dirname "$SCRIPT_DIR")"
 TEMPLATE_DIR="$HARBOR_ROOT/templates/dev-template"
 PROJECTS_DIR="$HARBOR_ROOT/projects"
 TARGET_DIR="$PROJECTS_DIR/$PROJECT_NAME"
+
 # SED command has slightly different syntax in Max vs. Linux
 if [[ "$OSTYPE" == "darwin"* ]]; then
     SED_CMD="sed -i ''"
