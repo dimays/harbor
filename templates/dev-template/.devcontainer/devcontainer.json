@@ -2,7 +2,7 @@
   "name": "Python Dev Container",
   "build": {
     "dockerfile": "Dockerfile",
-    "context": ".."
+    "context": "."
   },
 
   // Include variables from .env in container
