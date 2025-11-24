@@ -28,7 +28,7 @@ if [ ! -d "$PROJECTS_DIR" ]; then
     mkdir -p "$PROJECTS_DIR"
 fi
 
-if [ ! -d "$TARGET_DIR" ]; then
+if [ -d "$TARGET_DIR" ]; then
     echo "Error: Directory $TARGET_DIR already exists"
     exit 1
 fi
